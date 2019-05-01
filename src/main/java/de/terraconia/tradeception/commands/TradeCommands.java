@@ -71,7 +71,7 @@ public class TradeCommands extends BaseCommand {
         CompletableFuture.allOf(sellIS, buy1IS, buy2IS).thenAccept(nothing -> {
             MerchantRecipe recipe = new MerchantRecipe(sellIS.join(), Integer.MAX_VALUE);
             recipe.addIngredient(buy1IS.join());
-            if(buy2IS != null) recipe.addIngredient(buy2IS.join());
+            if(buy2IS.join() != null) recipe.addIngredient(buy2IS.join());
             List<MerchantRecipe> recipes = new ArrayList<>(trait.getTrades().getMerchant().getRecipes());
             recipes.add(recipe);
             trait.getTrades().getMerchant().setRecipes(recipes);

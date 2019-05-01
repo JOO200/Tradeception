@@ -31,6 +31,7 @@ public class TraitTradeCollection extends Trait {
 
     @EventHandler
     public void onNpcClickEvent(NPCRightClickEvent event) {
+        if(this.getNPC() != event.getNPC()) return;
         if(trades != null) trades.open(event.getClicker());
         else {
             TradeceptionPlugin.getInstance().getLogger().severe(
