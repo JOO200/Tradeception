@@ -1,0 +1,7 @@
+main: de.terraconia.tradeception.TradeceptionPlugin
+author: Joo200
+version: 1.0
+api-version: 1.13
+name: Tradeception
+
+depend: ['Baba43Lib', 'Citizens', 'ItemManagment', 'BabaServerAPI']

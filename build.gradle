@@ -1,0 +1,30 @@
+project.ext.targetServers = ["farmwelt"]
+project.ext.targetTestServers = ["testFarmwelt"]
+
+version = 'SERVER-SNAPSHOT'
+group = "de.terraconia";
+
+buildscript {
+    if (project.hasProperty('tcGradleScripts')) {
+        apply from: file(tcGradleScripts + '/tc-buildscript.gradle'), to: buildscript
+    }
+}
+
+apply plugin: 'java'
+if (project.hasProperty('tcGradleScripts')) {
+    apply from: tcGradleScripts + '/tc-project.gradle'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'tc.plugins', name: 'bukkit', version: 'SERVER-SNAPSHOT', changing: true, transitive: false
+    compile group: 'de.terraconia', name: 'Baba43Lib-Bukkit', version: 'SERVER-SNAPSHOT', changing: true, transitive: false
+    compile group: 'de.terraconia', name: 'ServerAPI-Bukkit', version: 'SERVER-SNAPSHOT', changing: true, transitive: false
+    compile group: 'de.terraconia', name: 'TerraconiaCommandFramework-Bukkit', version: 'SERVER-SNAPSHOT', changing: true, transitive: false
+    
+    compile group: 'de.terraconia', name: 'ItemManagment', version: 'SERVER-SNAPSHOT', changing: true, transitive: false
+    compile group: 'tc.plugins', name: 'citizens', version: 'SERVER-SNAPSHOT', changing: true, transitive: false
+}
