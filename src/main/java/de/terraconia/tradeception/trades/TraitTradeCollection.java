@@ -7,6 +7,11 @@ import net.citizensnpcs.api.persistence.Persist;
 import net.citizensnpcs.api.persistence.PersistenceLoader;
 import net.citizensnpcs.api.trait.Trait;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.inventory.InventoryCloseEvent;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class TraitTradeCollection extends Trait {
     static {
@@ -32,8 +37,9 @@ public class TraitTradeCollection extends Trait {
     @EventHandler
     public void onNpcClickEvent(NPCRightClickEvent event) {
         if(this.getNPC() != event.getNPC()) return;
-        if(trades != null) trades.open(event.getClicker());
-        else {
+        if(trades != null) {
+            trades.open(event.getClicker());
+        } else {
             TradeceptionPlugin.getInstance().getLogger().severe(
                     "Spieler " + event.getClicker().getName() + " hat NPC " + event.getNPC().getId() + " mit ungültigem Trait angeklickt.");
         }
