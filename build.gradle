@@ -1,5 +1,5 @@
-project.ext.targetServers = ["farmwelt"]
-project.ext.targetTestServers = ["testFarmwelt"]
+project.ext.targetServers = ["farmwelt", "spawn"]
+project.ext.targetTestServers = ["testFarmwelt", "testSpawn"]
 
 version = 'SERVER-SNAPSHOT'
 group = "de.terraconia";
